@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+# Import libraries
+import string, pyperclip,  millify
+from random import *
+
+# Ask for user to input how many characters they want their password
+char = int(input('How many characters? '))
+print("------------------------")
+
+# Generate password, copy to clipboard, and display results on console
+bit = char * 8
+characters = string.ascii_letters + string.punctuation  + string.digits
+password =  "".join(choice(characters) for x in range(int(char)))
+pyperclip.copy (password)
+print("["+str(bit) + " bit] Password: \n" + password)
+print("Copied to clipboard!")
+print("------------------------")
+
+# Calculate time to brute force
+seconds = round(1.7*10**-6*80**int(char))
+minutes = round(seconds/60,2)
+hours = round(seconds/3600,2)
+days = round(seconds/86400)
+allyears = seconds/31556952
+halfyears = round(allyears/2,1)
+
+# Display time to brute force
+if char < 4:
+	print("It would take less than a second for a computer to brute force this password.")
+elif char == 4:
+	print("It would take a computer about 1 minute to brute force this password.")
+elif days <= 1:
+	print("It would take about " + str(hours) + " hours to brute force this password.")
+elif days <= 365:
+	print("It would take a computer about " + str(days) + " days to brute force this password.")
+elif halfyears < 2:
+	print("It would take a computer about " + str(halfyears) + " years to brute force this password.")
+else: 
+	longnum = "%.0f" % (halfyears)
+	print("It would take a computer about " + longnum + " years to brute force this password.")
+print("------------------------")
+
