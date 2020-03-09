@@ -6,7 +6,7 @@ This Python script will help you create strong passwords for all of your account
 - Automatically send passwords to your clipboard.
 - Give you the estimated time it would take to bruteforce the password generated with a modern computer. 
 
-# Instillation
+# Installation
 1. Install Python3.
 2. Install requred Python libraries (pip3 install -r requirements.txt).
 3. Make passgen an executable file (sudo chmod +x passgen).
